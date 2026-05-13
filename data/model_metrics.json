@@ -1,0 +1,80 @@
+{
+  "AAPL": {
+    "random_forest": {
+      "mae": 0.6136,
+      "r2": 0.9978
+    },
+    "linear_regression": {
+      "mae": 0.506,
+      "r2": 0.9986
+    },
+    "best_model": "linear_regression",
+    "train_samples": 400,
+    "test_samples": 100
+  },
+  "TSLA": {
+    "random_forest": {
+      "mae": 0.8857,
+      "r2": 0.9986
+    },
+    "linear_regression": {
+      "mae": 0.723,
+      "r2": 0.9991
+    },
+    "best_model": "linear_regression",
+    "train_samples": 400,
+    "test_samples": 100
+  },
+  "MSFT": {
+    "random_forest": {
+      "mae": 1.5751,
+      "r2": 0.9982
+    },
+    "linear_regression": {
+      "mae": 1.2951,
+      "r2": 0.9989
+    },
+    "best_model": "linear_regression",
+    "train_samples": 400,
+    "test_samples": 100
+  },
+  "NVDA": {
+    "random_forest": {
+      "mae": 1.5551,
+      "r2": 0.9995
+    },
+    "linear_regression": {
+      "mae": 1.1393,
+      "r2": 0.9997
+    },
+    "best_model": "linear_regression",
+    "train_samples": 400,
+    "test_samples": 100
+  },
+  "META": {
+    "random_forest": {
+      "mae": 1.4717,
+      "r2": 0.9938
+    },
+    "linear_regression": {
+      "mae": 1.1109,
+      "r2": 0.9973
+    },
+    "best_model": "linear_regression",
+    "train_samples": 400,
+    "test_samples": 100
+  },
+  "AMZN": {
+    "random_forest": {
+      "mae": 0.7734,
+      "r2": 0.9977
+    },
+    "linear_regression": {
+      "mae": 0.5993,
+      "r2": 0.9987
+    },
+    "best_model": "linear_regression",
+    "train_samples": 400,
+    "test_samples": 100
+  }
+}

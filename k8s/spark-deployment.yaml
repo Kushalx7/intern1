@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-streaming
+  labels: { app: spark-streaming }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: spark-streaming } }
+  template:
+    metadata: { labels: { app: spark-streaming } }
+    spec:
+      containers:
+      - name: spark
+        image: stock-spark:latest
+        command: ["spark-submit", "--master", "local[2]",
+                  "/app/app/streaming/spark_streaming_job.py"]
+        envFrom:
+        - secretRef: { name: stock-secrets }
+        resources:
+          requests: { cpu: "500m", memory: "1Gi" }
+          limits:   { cpu: "2",    memory: "4Gi" }
+---
+apiVersion: v1
+kind: Secret
+metadata: { name: stock-secrets }
+type: Opaque
+stringData:
+  KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+  KAFKA_TOPIC: stock-prices
+  POSTGRES_HOST: postgres
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: stocks
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  MONGO_URI: mongodb://mongodb:27017
+  MONGO_DB: stocks_db
+  MONGO_COLLECTION: live_prices
+  ELASTICSEARCH_HOST: http://elasticsearch:9200
